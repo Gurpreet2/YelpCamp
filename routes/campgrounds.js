@@ -74,6 +74,7 @@ router.get("/:id/edit", middleware.isLoggedIn, middleware.checkUserCampground, f
 
 // UPDATE
 router.put("/:id", middleware.isLoggedIn, middleware.checkUserCampground, function(req, res) {
+    req.body.campground.updated = Date.now();
     Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err) {
         if (err) {
             console.log(err);

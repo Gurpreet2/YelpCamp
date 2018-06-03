@@ -20,6 +20,7 @@ var app = express(),
 ;
 
 // settings
+app.locals.moment = require("moment");
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/assets"));
 app.use(methodOverride("_method"));

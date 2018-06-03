@@ -15,13 +15,21 @@
 		</div>
 		<div class="col-md-9">
 			<div class="thumbnail">
-				<img class="img-responsive" src="<%= campground["image"] %>">
+				<img class="img-responsive" src="<%= campground.image %>">
 				<div class="caption">
 					<h4 class="pull-right">$<%= campground.price %>/night</h4>
 					<h4><a><%= campground.name %></a></h4>
 					<p><%= campground.description %></p>
 					<p>
-						<em>Submitted By <%= campground.author.username %></em>
+						<em>
+							Submitted By <%= campground.author.username %>
+							<br>
+							<% if (campground.updated) { %>
+								Updated <%= moment(campground.updated).fromNow() %>
+							<% } else { %>
+								Created <%= moment(campground._id.getTimestamp()).fromNow() %>
+							<% } %>
+						</em>
 					</p>
 					<% if (currentUser && campground.author.id.equals(currentUser._id)) { %>
 					<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/edit">Edit</a>
@@ -40,7 +48,13 @@
 					<div class="row">
 						<div class="col-md-12">
 							<strong><%= comment.author.username %></strong>
-							<span class="pull-right">10 days ago</span>
+							<span class="pull-right">
+								<% if (comment.updated) { %>
+									Updated <%= moment(comment.updated).fromNow() %>
+								<% } else { %>
+									Created <%= moment(comment._id.getTimestamp()).fromNow() %>
+								<% } %>
+							</span>
 							<p>
 								<%= comment.text %>
 							</p>

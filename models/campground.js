@@ -25,7 +25,11 @@ const campgroundSchema = new mongoose.Schema({
       price: {
             type: String,
             default: createPrice
-      }
+      },
+	updated: {
+		type: Date,
+		default: null
+	}
 });
 
 module.exports = mongoose.model("Campground", campgroundSchema);

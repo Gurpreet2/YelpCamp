@@ -59,6 +59,7 @@ router.get("/:commentId/edit", middleware.isLoggedIn, middleware.checkUserCommen
 
 // update comment route
 router.put("/:commentId", middleware.isLoggedIn, middleware.checkUserComment, function(req, res) {
+    req.body.comment.updated = Date.now();
     Comment.findByIdAndUpdate(req.params.commentId, req.body.comment, function(err, comment) {
         if (err) {
             console.log(err);
