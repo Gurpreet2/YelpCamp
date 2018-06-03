@@ -36,11 +36,16 @@ function seedDB() {
 						console.log(err);
 					} else {
 						console.log("Added a campground!");
+						campground.author = {id: "5afb70f3fc779013de84f37e", username: "abc"};
+						campground.save();
 						// create a comment on each campground
 						Comment.create(
 							{
 								text: "This place is great, but I wish there was internet!",
-								author: "Homer"
+								author: {
+									id: "5afb70f3fc779013de84f37d",
+									username: "Homer"
+								}
 							}, function (err, comment) {
 								if (err) {
 									console.log(err);

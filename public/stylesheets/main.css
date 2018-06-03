@@ -6,3 +6,12 @@
 .thumbnail {
 	padding: 0;
 }
+
+.delete-form {
+	display: inline;
+}
+
+.login-form, .registration-form {
+	margin: 25px auto;
+	max-width: 30%;
+}
