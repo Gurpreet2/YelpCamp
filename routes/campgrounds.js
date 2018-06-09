@@ -2,7 +2,7 @@
 const express = require("express"),
       Campground = require("../models/campground");
 
-let router = express.Router(),
+const router = express.Router(),
     middleware = require("../middleware");
 
 

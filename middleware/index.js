@@ -2,7 +2,7 @@
 var Campground = require("../models/campground");
 var Comment = require("../models/comment");
 
-let middlewareObj = {};
+var middlewareObj = {};
 
 middlewareObj.isLoggedIn = function(req, res, next) {
     if (req.isAuthenticated()) {

@@ -4,7 +4,7 @@ const mongoose   = require("mongoose"),
       Comment    = require("./models/comment")
 ;
 
-var data = [
+const data = [
 	{
 		name: "Frozen Mountain",
 		image: "/pictures/photo-frozen-mountain-light.jpeg",

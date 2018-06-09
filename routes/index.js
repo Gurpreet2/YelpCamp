@@ -1,9 +1,9 @@
 
 const express = require("express"),
 	  passport = require("passport");
-let router = express.Router();
+const router = express.Router();
 
-var User = require("../models/user");
+const User = require("../models/user");
 
 // landing page
 router.get("/", function(req, res) {
@@ -17,7 +17,7 @@ router.get("/register", function(req, res) {
 
 // sign up logic
 router.post("/register", function(req, res) {
-    var newUser = new User({username: req.body.username});
+    const newUser = new User({username: req.body.username});
     User.register(newUser, req.body.password, function(err, user) {
         if (err) {
             req.flash("error", err.message);

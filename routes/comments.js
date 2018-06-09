@@ -3,8 +3,8 @@ const express = require("express"),
       Campground = require("../models/campground"),
       Comment = require("../models/comment");
 
-let router = express.Router({mergeParams: true}),
-    middleware = require("../middleware/index");
+const router = express.Router({mergeParams: true}),
+      middleware = require("../middleware/index");
 
 
 // show new comment page

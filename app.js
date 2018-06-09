@@ -1,22 +1,22 @@
 
 // modules
-const express    = require("express"),
-      bodyParser = require("body-parser"),
-      mongoose   = require("mongoose"),
-      flash      = require("connect-flash"),
-      passport   = require("passport"),
-      LocalStrategy = require("passport-local"),
-      Campground = require("./models/campground"),
-      User          = require("./models/user"),
-      seedDB     = require("./seeds"),
-      Comment    = require("./models/comment"),
-      methodOverride = require("method-override")
+const   express    = require("express"),
+        bodyParser = require("body-parser"),
+        mongoose   = require("mongoose"),
+        flash      = require("connect-flash"),
+        passport   = require("passport"),
+        LocalStrategy = require("passport-local"),
+        Campground = require("./models/campground"),
+        User          = require("./models/user"),
+        seedDB     = require("./seeds"),
+        Comment    = require("./models/comment"),
+        methodOverride = require("method-override")
 ;
 
-var app = express(),
-    commentRoutes = require("./routes/comments"),
-    campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes = require("./routes/index")
+const app = express(),
+      commentRoutes = require("./routes/comments"),
+      campgroundRoutes = require("./routes/campgrounds"),
+      indexRoutes = require("./routes/index")
 ;
 
 // settings
@@ -31,16 +31,16 @@ app.disable('x-powered-by');
 
 // db settings
 mongoose.connect("mongodb://localhost/yelp_camp");
-let db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, "connection error:"));
 db.once('open', function() {
-    console.log("CONNECTED TO DATABASE!");
+    console.log("Connected to Database!");
 });
 //seedDB(); // seed the database
 
 // passport configuration
 app.use(require("express-session")({
-    secret: "asdfneu9f3bfuq39fh",
+    secret: require("./private/secret"),
     resave: false,
     saveUninitialized: false
 }));
